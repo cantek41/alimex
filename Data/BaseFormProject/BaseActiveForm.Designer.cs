@@ -28,29 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelButtons = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblFormName = new Telerik.WinControls.UI.RadLabel();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lblFormName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
-            // panelButtons
+            // panel1
             // 
-            this.panelButtons.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelButtons.Location = new System.Drawing.Point(0, 0);
-            this.panelButtons.Name = "panelButtons";
-            this.panelButtons.Size = new System.Drawing.Size(57, 456);
-            this.panelButtons.TabIndex = 0;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(45, 532);
+            this.panel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblFormName);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(45, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(861, 532);
+            this.panel2.TabIndex = 0;
+            // 
+            // lblFormName
+            // 
+            this.lblFormName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblFormName.Location = new System.Drawing.Point(3, 3);
+            this.lblFormName.Name = "lblFormName";
+            this.lblFormName.Size = new System.Drawing.Size(99, 25);
+            this.lblFormName.TabIndex = 1;
+            this.lblFormName.Text = "Form Name";
             // 
             // BaseActiveForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(743, 456);
-            this.Controls.Add(this.panelButtons);
+            this.ClientSize = new System.Drawing.Size(906, 532);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Name = "BaseActiveForm";
             // 
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lblFormName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -58,7 +84,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panelButtons;
+        public System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Panel panel2;
+        public Telerik.WinControls.UI.RadLabel lblFormName;
+
 
     }
 }

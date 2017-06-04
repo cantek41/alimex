@@ -28,7 +28,7 @@ namespace BaseFormProject
         {
             new TelerikMetroTheme();            
         }
-        protected void ApplyThemeRecursively(Control.ControlCollection controlCollection)
+        public void ApplyThemeRecursively(Control.ControlCollection controlCollection)
         {
             foreach (Control control in controlCollection)
             {

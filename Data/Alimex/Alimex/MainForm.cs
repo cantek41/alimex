@@ -24,20 +24,46 @@ namespace Alimex
             _wideMenu.Dock = DockStyle.Fill;
             MainsplitContainer.Panel1.BackColor = Color.FromArgb(234, 235, 236);
             MainsplitContainer.Panel1.Controls.Add(_wideMenu);
-            
+
         }
 
-        public void showForm(string namesapace,string formName)
+        public void showForm(string namesapace, string formName)
         {
-            
-            Form myForm = PreperForm.getForm(namesapace, formName);
+            hideAllForm();
+            Form myForm = checkHistory(formName);
+            if (myForm == null)
+                myForm = PreperForm.getForm(namesapace, formName);
             myForm.FormBorderStyle = FormBorderStyle.FixedToolWindow;
             myForm.TopLevel = false;
             myForm.AutoScroll = true;
             MainsplitContainer.Panel2.Controls.Add(myForm);
             myForm.Show();
-
             myForm.Dock = DockStyle.Fill;
+        }
+
+        private void hideAllForm()
+        {
+            foreach (var item in MainsplitContainer.Panel2.Controls)
+            {
+                var a = item as Form;
+                if (a == null)
+                    continue;
+                a.Hide();
+
+            }
+        }
+
+        private Form checkHistory(string nameSpace)
+        {
+            foreach (var item in MainsplitContainer.Panel2.Controls)
+            {
+                var a = item as Form;
+                if (a == null)
+                    continue;
+                if (a.ProductName + a.Name == nameSpace)
+                    return a;
+            }
+            return null;
         }
 
         private void setTheme()

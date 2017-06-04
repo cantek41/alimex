@@ -72,6 +72,7 @@
     <Compile Include="ModelSource\TableField.cs" />
     <Compile Include="ModelSource\TableRelation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="prp.cs" />
     <Compile Include="Repository\IRespository.cs" />
     <Compile Include="Repository\Repository.cs" />
   </ItemGroup>

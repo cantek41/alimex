@@ -70,11 +70,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="AddFieldForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+      <DependentUpon>AddFieldForm.cs</DependentUpon>
     </Compile>
     <Compile Include="IRefresh.cs" />
     <Compile Include="Program.cs" />
@@ -85,11 +85,11 @@
     <Compile Include="UserControl1.Designer.cs">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddFieldForm.resx">
+      <DependentUpon>AddFieldForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -100,6 +100,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UserControl1.resx">
       <DependentUpon>UserControl1.cs</DependentUpon>
@@ -126,6 +127,18 @@
       <Project>{4031507b-f5d7-4490-b54a-6b7c42996066}</Project>
       <Name>Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SaveLight.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LightSave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.magnify.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

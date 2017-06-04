@@ -1,7 +1,7 @@
 ﻿using Telerik.WinControls.UI;
 namespace WindowsFormsApplication1
 {
-    partial class Form2
+    partial class AddField
     {
         /// <summary>
         /// Required designer variable.
@@ -29,31 +29,38 @@ namespace WindowsFormsApplication1
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new RadLabel();
-            this.label2 = new RadLabel();
-            this.button1 = new RadButton();
-            this.button2 = new RadButton();
-            this.textBox1 = new RadTextBox();
-            this.comboBox1 = new RadDropDownList();
-            this.label3 = new RadLabel();
-            this.comboBox2 = new RadDropDownList();
+            this.label1 = new Telerik.WinControls.UI.RadLabel();
+            this.label2 = new Telerik.WinControls.UI.RadLabel();
+            this.button1 = new Telerik.WinControls.UI.RadButton();
+            this.button2 = new Telerik.WinControls.UI.RadButton();
+            this.textBox1 = new Telerik.WinControls.UI.RadTextBox();
+            this.comboBox1 = new Telerik.WinControls.UI.RadDropDownList();
+            this.label3 = new Telerik.WinControls.UI.RadLabel();
+            this.comboBox2 = new Telerik.WinControls.UI.RadDropDownList();
+            ((System.ComponentModel.ISupportInitialize)(this.label1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.button1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.button2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(18, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.Size = new System.Drawing.Size(30, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Field";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(18, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 13);
+            this.label2.Size = new System.Drawing.Size(30, 18);
             this.label2.TabIndex = 0;
             this.label2.Text = "Type";
             // 
@@ -63,7 +70,7 @@ namespace WindowsFormsApplication1
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(62, 30);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Ok";            
+            this.button1.Text = "Ok";
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
@@ -83,30 +90,27 @@ namespace WindowsFormsApplication1
             // 
             // comboBox1
             // 
-            this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(99, 53);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(130, 21);
+            this.comboBox1.Size = new System.Drawing.Size(130, 20);
             this.comboBox1.TabIndex = 3;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(18, 93);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.Size = new System.Drawing.Size(56, 18);
             this.label3.TabIndex = 0;
-            this.label3.Text = " Base Data";
+            this.label3.Text = "Base Data";
             // 
             // comboBox2
             // 
-            this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(99, 90);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(130, 21);
+            this.comboBox2.Size = new System.Drawing.Size(130, 20);
             this.comboBox2.TabIndex = 3;
             // 
-            // Form2
+            // AddField
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -119,8 +123,21 @@ namespace WindowsFormsApplication1
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form2";
-            this.Text = "Form2";
+            this.Name = "AddField";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
+            this.Text = "Add Field";
+            ((System.ComponentModel.ISupportInitialize)(this.label1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.button1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.button2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

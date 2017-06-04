@@ -2,7 +2,7 @@
     {
         "Id": 1,
         "ParentId": 0,
-        "Title": "Uygulama",
+        "Title": "Organization",
         "Icon": null,
         "UrlType": "Form",
         "Namesapace": "Organization",
@@ -11,11 +11,11 @@
     {
         "Id": 3,
         "ParentId": 1,
-        "Title": "Ayarlar",
+        "Title": "Employee",
         "Icon": null,
         "UrlType": "Form",
-        "Namesapace": "Organization",
-        "Url": "Organization.OrganizationShemaForm"
+        "Namesapace": "WindowsFormsApplication1",
+        "Url": "WindowsFormsApplication1.Form1"
     },
     {
         "Id": 4,

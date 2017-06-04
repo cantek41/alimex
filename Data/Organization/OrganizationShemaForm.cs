@@ -219,6 +219,7 @@ namespace Organization
             OrgContainerShape orgTeam = new OrgContainerShape(_userContext)
             {
                 Name = element.Name,
+                Id=element.Id
             };
             orgTeam.ToggleCollapseButton.ImagePrimitive.Visibility = Telerik.WinControls.ElementVisibility.Hidden;
             orgTeam.Text = orgTeam.Name;
@@ -231,6 +232,7 @@ namespace Organization
                 connection.ConnectionType = Telerik.Windows.Diagrams.Core.ConnectionType.Polyline;
                 connection.Source = parentNode;
                 connection.Target = orgTeam;
+                connection.Route = true;
 
                 this.radDiagram1.AddConnection(connection);
             }
@@ -301,18 +303,17 @@ namespace Organization
 
         private void button1_Click(object sender, EventArgs e)
         {
-            addTeam_Click( sender,  e);
-            //RoleNode addRole = new RoleNode(_userContext.Organization.ToList(), this);
-            //addRole.ShowDialog();
+            RoleNode addRole = new RoleNode(_userContext.Organization.ToList(), this);
+            addRole.ShowDialog();
         }
 
         public void addUnit(string name, int parentId)
         {
-            _userContext.Organization.Add(new AlimexDAL.Entity.Organization() { Name = name, Parent = parentId });
+            var org = new AlimexDAL.Entity.Organization() { Name = name, Parent = parentId };
+            _userContext.Organization.Add(org);
             _userContext.SaveChanges();
-            //OrganizationShemaForm NewForm = new OrganizationShemaForm();
-            //NewForm.Show();
-            //this.Dispose(false);
+            refreashDiagram();
+           
         }
 
         public void addMember(string UserId, int organizationId)
@@ -321,43 +322,16 @@ namespace Organization
             var user = _userContext.Users.Where(x => x.Id == userIDGuid).FirstOrDefault();
             user.Organizations.Add(_userContext.Organization.Where(x => x.Id == organizationId).FirstOrDefault());
             _userContext.SaveChanges();
-            //OrganizationShemaForm NewForm = new OrganizationShemaForm();
-            //NewForm.Show();
-            //this.Dispose(false);
+            refreashDiagram();
         }
 
-       public void addTeam_Click(object sender, EventArgs e)
+        private void refreashDiagram()
         {
-            var parent =this.radDiagram1.Shapes.ToList();
-            //var parentTeam = this.FindAncestor<OrgContainerShape>();
-            var newTeam = new OrgContainerShape(_userContext)
-            {
-                //Name = "New " + parentTeam.Tag.ToString() + " Team",
-                //BaseColor = parentTeam.BaseColor,
-            };
-
-            //parentTeam.ShowCollapseButton = true;
-            //newTeam.ToggleCollapseButton.ImagePrimitive.Visibility = Telerik.WinControls.ElementVisibility.Hidden;
-            //newTeam.Text = newTeam.Name;
-            //newTeam.Tag = parentTeam.Tag.ToString();
-            //newTeam.Path = string.Format("{0}|{1}", parentTeam.Path, newTeam.Name);
-            //newTeam.TeamMembers = string.Format("0 Team Members");
-            //newTeam.ShowCollapseButton = false;
-            //OrganizationShemaForm.currentLayoutSettings.Roots.Add(newTeam);
-
-            //var diagramElement = this.FindAncestor<RadDiagramElement>();
-            //diagramElement.AddShape(newTeam);
-
-            //RadDiagramConnection connection = new RadDiagramConnection();
-            //connection.ConnectionType = Telerik.Windows.Diagrams.Core.ConnectionType.Polyline;
-            //connection.Source = parentTeam;
-            //connection.Target = newTeam;
-            //connection.Route = true;
-            //diagramElement.AddConnection(connection);
-
-            //diagramElement.SetLayout(Telerik.Windows.Diagrams.Core.LayoutType.Tree, OrganizationShemaForm.currentLayoutSettings);
-
-        }
+            this.radDiagram1.Clear();
+            Program.IsStart = false;
+            showShemaManuel();
+          //  this.radDiagram1.SetLayout(Telerik.Windows.Diagrams.Core.LayoutType.Tree, currentLayoutSettings);
+        }   
 
 
         private void button2_Click(object sender, EventArgs e)
@@ -368,15 +342,12 @@ namespace Organization
 
         private void button3_Click(object sender, EventArgs e)
         {
-
-
             var image = radDiagram1.ExportToImage();
             SaveFileDialog save = new SaveFileDialog();
             save.Filter = "Bitmap Image (.bmp)|*.bmp";
             save.ShowDialog();
             if (!String.IsNullOrEmpty(save.FileName))
                 image.Save(save.FileName);
-
         }
     }
 }

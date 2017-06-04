@@ -13,12 +13,13 @@ using Telerik.WinControls.UI;
 
 namespace WindowsFormsApplication1
 {
-    public partial class Form2 : BaseForm
+    public partial class AddField : BaseForm
     {
         IRepository _repo;
         string _tableName;
         IRefresh _parentform;
-        public Form2(IRepository repo,string tableName,IRefresh parentform):base()
+        public AddField(IRepository repo, string tableName, IRefresh parentform)
+            : base()
         {
             InitializeComponent();
             base.ApplyThemeRecursively(this.Controls);
@@ -27,29 +28,30 @@ namespace WindowsFormsApplication1
             Dictionary<string, FieldType> test = new Dictionary<string, FieldType>();
             test.Add("integer", FieldType.Int32);
             test.Add("string", FieldType.String);
-            test.Add("boolean", FieldType.Boolean);          
+            test.Add("boolean", FieldType.Boolean);
             comboBox1.DataSource = new BindingSource(test, null);
-            comboBox1.DisplayMember = "Value";
-            comboBox1.ValueMember = "Key";
-            _parentform = parentform;           
-            
+            comboBox1.DisplayMember = "Key";
+            comboBox1.ValueMember = "Value";
+            _parentform = parentform;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var tables = _repo.getTables();
-            tables.Where(x => x.Name == _tableName).FirstOrDefault().Fields.Add(new TableField()
+            var tables = _repo.getTables();           
+            var field = new TableField()
             {
-                Name=textBox1.Text,
-                FieldType =(FieldType)comboBox1.SelectedItem.Value,
-                IsNullable=true,
-                IsUnique=false
+                Name = textBox1.Text,
+                FieldType = (FieldType)comboBox1.SelectedItem.Value,
+                IsNullable = true,
+                IsUnique = false
 
-            });
+            };
+            tables.Where(x => x.Name == _tableName).FirstOrDefault().Fields.Add(field);
             _repo.UpdateDb(tables);
             _parentform.refreshView();
             this.Close();
-            
+
         }
     }
 }

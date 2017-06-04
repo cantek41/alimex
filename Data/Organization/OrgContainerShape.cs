@@ -16,6 +16,7 @@ namespace Organization
         private bool showCollapseButton = true;
         private readonly LightVisualElement collapseElement = new LightVisualElement();
         private static readonly Font segoeUI = new Font("Segoe UI Symbol", 11);
+        public int Id { get; set; }
         AppDbContext _context;
         public OrgContainerShape(AppDbContext context)
         {
@@ -217,23 +218,30 @@ namespace Organization
             this.MinHeight = 0;
             if (e.NewItems != null && e.NewItems[0] is RadDiagramShape)
             {
-                ((RadDiagramShape)e.NewItems[0]).BackColor = this.BaseColor;               
-                //if (Program.IsStart)
-                //{
-                //    var userID = Guid.Parse(((RadDiagramShape)e.NewItems[0]).Tag.ToString());
-                //    var user = _context.Users.Where(x => x.Id == userID).FirstOrDefault();
-                //    user.Organizations.Remove(user.Organizations.FirstOrDefault());
-                //    user.Organizations.Add(_context.Organization.Where(x => x.Id == (int)this.Tag).FirstOrDefault());
-                //    _context.SaveChanges();
-                //}
+                ((RadDiagramShape)e.NewItems[0]).BackColor = this.BaseColor;
+                if (Program.IsStart)
+                {
+                    var userID = Guid.Parse(((RadDiagramShape)e.NewItems[0]).Tag.ToString());
+                    var user = _context.Users.Where(x => x.Id == userID).FirstOrDefault();
+                    
+                    user.Organizations.Remove(user.Organizations.FirstOrDefault());
+                    _context.SaveChanges();
+                    user.Organizations.Add(_context.Organization.Where(x => x.Id == this.Id).FirstOrDefault());
+                    _context.SaveChanges();
+                }
                 
 
             }
-            
+
+            changeMemberPosition();
+        }
+
+        public void changeMemberPosition()
+        {
             var position = new Telerik.Windows.Diagrams.Core.Point(this.Position.X + 10, this.Position.Y + 50);
-            
+
             int memberCount = 0;
-            
+
             foreach (var item in this.Items)
             {
                 var member = item as RadDiagramShape;
@@ -248,7 +256,7 @@ namespace Organization
                     position = new Telerik.Windows.Diagrams.Core.Point(this.Position.X + 10, position.Y + member.Height + 10);
                 }
             }
-            
+
             if (position.Y + 50 > this.Position.Y + this.Height)
             {
                 this.UpdateContentBounds();

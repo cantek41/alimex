@@ -15,8 +15,14 @@ namespace BaseFormProject
     {
         public BaseActiveForm():base()
         {
-            this.FormBorderStyle = FormBorderStyle.Sizable;
             InitializeComponent();         
+        }
+
+        public void loadToolBar()
+        {
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.panel1.Size = new Size(42, this.Height);
+
         }
     }
 }

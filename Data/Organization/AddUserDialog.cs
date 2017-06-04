@@ -28,10 +28,18 @@ namespace Organization
             this.radDropDownList2.DisplayMember = "Name";
             this.radDropDownList2.DataSource = parents;
 
+            List<User> userData = new List<User>();
+            foreach (var d in users)
+            {
+                if (d.Organizations.Count == 0)
+                    userData.Add(d);
+            }
 
+            if (userData.Count == 0)
+                radButton2.Enabled = false;
             this.radDropDownList1.ValueMember = "Id";
             this.radDropDownList1.DisplayMember = "Name";
-            this.radDropDownList1.DataSource = users;
+            this.radDropDownList1.DataSource = userData;
 
             _parentForm = parentForm;
 

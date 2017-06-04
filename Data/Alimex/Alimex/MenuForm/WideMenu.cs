@@ -57,7 +57,7 @@ namespace Alimex.MenuForm
             foreach (var item in dt.Where(x=>x.ParentId==0))
             {
                 CustomNode radTreeNode2 = new CustomNode();
-                radTreeNode2.Image = ((System.Drawing.Image)(Resources.ResourceManager.GetObject("radTreeNode2.Image")));
+                radTreeNode2.Image = ((System.Drawing.Image)(Resources.ResourceManager.GetObject("appbar_folder")));
                 radTreeNode2.ImageIndex = 1;
                 radTreeNode2.Text = item.Title;
                 radTreeNode2.Id = item.Id;
