@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{89CBFD46-71ED-4213-9D7B-65A0418576B8}</ProjectGuid>
+    <ProjectGuid>{43B384FC-BF0A-48E1-B367-BCEB05DE827B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Organization</RootNamespace>
-    <AssemblyName>Organization</AssemblyName>
+    <RootNamespace>AlimexDAL</RootNamespace>
+    <AssemblyName>AlimexDAL</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -35,6 +35,10 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.5.0\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -45,7 +49,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,45 +61,16 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Telerik.WinControls, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\Program Files (x86)\Telerik\UI for WinForms R2 2017\Bin40\Telerik.WinControls.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Telerik.WinControls.GridView, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.WinControls.RadDiagram, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.WinControls.Themes.TelerikMetro, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.WinControls.UI, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\Program Files (x86)\Telerik\UI for WinForms R2 2017\Bin40\Telerik.WinControls.UI.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="TelerikCommon, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\Program Files (x86)\Telerik\UI for WinForms R2 2017\Bin40\TelerikCommon.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IOrganiztionForm.cs" />
-    <Compile Include="ModelOrganization.cs" />
-    <Compile Include="OrganizationShemaForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OrganizationShemaForm.Designer.cs">
-      <DependentUpon>OrganizationShemaForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="OrgContainerShape.cs" />
-    <Compile Include="OrgHeaderPresenterElement.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="AppDbContext.cs" />
+    <Compile Include="Entity\Base.cs" />
+    <Compile Include="Entity\Users\Role.cs" />
+    <Compile Include="Entity\Users\Organization.cs" />
+    <Compile Include="Entity\Users\User.cs" />
+    <Compile Include="Model\DbParameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AddUserDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RoleNode.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <EmbeddedResource Include="OrganizationShemaForm.resx">
-      <DependentUpon>OrganizationShemaForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
+    <Compile Include="RegisterComponent.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -102,12 +80,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddUserDialog.resx">
-      <DependentUpon>AddUserDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RoleNode.resx">
-      <DependentUpon>RoleNode.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -121,19 +93,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Organization.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AlimexDAL\AlimexDAL.csproj">
-      <Project>{43b384fc-bf0a-48e1-b367-bceb05de827b}</Project>
-      <Name>AlimexDAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BaseFormProject\BaseFormProject.csproj">
-      <Project>{f8c520d9-11ea-47f7-aa08-5b5b1a2beb69}</Project>
-      <Name>BaseFormProject</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
