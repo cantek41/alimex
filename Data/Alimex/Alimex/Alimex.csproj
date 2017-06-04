@@ -88,6 +88,12 @@
     </EmbeddedResource>
     <Compile Include="MenuForm\CustomNode.cs" />
     <Compile Include="MenuForm\Data.cs" />
+    <Compile Include="MenuForm\NarrowMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MenuForm\NarrowMenu.Designer.cs">
+      <DependentUpon>NarrowMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuForm\WideMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     <Compile Include="PreperForm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MenuForm\NarrowMenu.resx">
+      <DependentUpon>NarrowMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MenuForm\WideMenu.resx">
       <DependentUpon>WideMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -109,6 +118,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="MenuForm\menuJson.json" />
     <None Include="packages.config" />
@@ -131,6 +141,42 @@
       <Project>{89cbfd46-71ed-4213-9d7b-65a0418576b8}</Project>
       <Name>Organization</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.home1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.anchor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.navigate.next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.navigate.previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.close1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.close2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
