@@ -144,7 +144,9 @@ namespace Data
                 //TODO:Loglama yap
 
             }
-          
+            if (tables==null)
+            return configurations;
+           
             foreach (var table in tables)
             {
                 propConfiguration = new MappingConfiguration(table.Name, PERSISTENT_TYPE_PREFIX);

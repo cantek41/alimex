@@ -15,7 +15,7 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : RadForm, IRefresh
     {
-        IApplicationContext _context = new Data.ApplicationContext(@"data source=.\sqlexpress;initial catalog=Denemeff;integrated security=True");
+        IApplicationContext _context = new Data.ApplicationContext(@"data source=.;initial catalog=Denemeff;integrated security=True");
 
         IRepository _repo;
         public Form1()
