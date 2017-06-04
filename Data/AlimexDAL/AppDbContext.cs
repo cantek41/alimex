@@ -29,7 +29,7 @@ namespace AlimexDAL
         /// <returns></returns>
         public static string CreateConnectionString(DbParameter parameter)
         {
-            return @"data source=.\sqlexpress;initial catalog=Denemeff;integrated security=True";
+            return @"data source=.;initial catalog=Denemeff;integrated security=True";
 
             var defaultString = String.Format("data source={0};initial catalog={1};integrated security={2};MultipleActiveResultSets=True;App=EntityFramework;User Id={3};Password={4}", parameter.dataSource, parameter.initialCatalog, parameter.IntegratedSecurity,parameter.dbUserId,parameter.dbPassword);
           

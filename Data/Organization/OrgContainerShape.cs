@@ -218,14 +218,14 @@ namespace Organization
             if (e.NewItems != null && e.NewItems[0] is RadDiagramShape)
             {
                 ((RadDiagramShape)e.NewItems[0]).BackColor = this.BaseColor;               
-                if (Program.IsStart)
-                {
-                    var userID = Guid.Parse(((RadDiagramShape)e.NewItems[0]).Tag.ToString());
-                    var user = _context.Users.Where(x => x.Id == userID).FirstOrDefault();
-                    user.Organizations.Remove(user.Organizations.FirstOrDefault());
-                    user.Organizations.Add(_context.Organization.Where(x => x.Id == (int)this.Tag).FirstOrDefault());
-                    _context.SaveChanges();
-                }
+                //if (Program.IsStart)
+                //{
+                //    var userID = Guid.Parse(((RadDiagramShape)e.NewItems[0]).Tag.ToString());
+                //    var user = _context.Users.Where(x => x.Id == userID).FirstOrDefault();
+                //    user.Organizations.Remove(user.Organizations.FirstOrDefault());
+                //    user.Organizations.Add(_context.Organization.Where(x => x.Id == (int)this.Tag).FirstOrDefault());
+                //    _context.SaveChanges();
+                //}
                 
 
             }

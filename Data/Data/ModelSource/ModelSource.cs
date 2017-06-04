@@ -14,7 +14,7 @@ namespace Data
         #region Public Methods
         public IList<Table> getSource() 
         {
-            using (StreamReader file = File.OpenText(@"../../../ModelSource/Tables.json"))
+            using (StreamReader file = File.OpenText(@"D:\Proje\Alimex\Data\Data\ModelSource\Tables.json"))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 return (IList<Table>)serializer.Deserialize(file, typeof(IList<Table>));

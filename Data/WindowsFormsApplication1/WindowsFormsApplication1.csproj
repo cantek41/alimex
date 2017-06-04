@@ -118,10 +118,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AlimexDAL\AlimexDAL.csproj">
-      <Project>{43b384fc-bf0a-48e1-b367-bceb05de827b}</Project>
-      <Name>AlimexDAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BaseFormProject\BaseFormProject.csproj">
       <Project>{f8c520d9-11ea-47f7-aa08-5b5b1a2beb69}</Project>
       <Name>BaseFormProject</Name>
