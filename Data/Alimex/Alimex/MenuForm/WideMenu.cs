@@ -22,15 +22,21 @@ namespace Alimex.MenuForm
         List<Data> dt;
         List<Data> temp;
         string filePath = @"../../MenuForm/menuJson.json";
+        public int Width = 150;
+
         public WideMenu()
         {
+
             InitializeComponent();
+
+           
             Init();
             WireEvents();
             radTreeView.ThemeName = "TelerikMetro";
             radTreeView.TreeViewElement.BackColor = Color.Transparent;
             radWideFormPanel.BackColor = Color.Transparent;
-            radTextBox.BackColor = Color.FromArgb(234, 235, 236);
+
+            myTextBox.BackColor = Color.FromArgb(234, 235, 236);
             btnClose.BackColor = Color.FromArgb(234, 235, 236); 
             radTreeView.TreeViewElement.BackColor = Color.Transparent;
             TreeViewDragDropService dragDropService1 = this.radTreeView.TreeViewElement.DragDropService;
@@ -38,9 +44,17 @@ namespace Alimex.MenuForm
             this.radTreeView.SelectedNodeChanged += radTreeView1_Selected; 
         }
 
+       
+
+        public void btnOpenClose_Click(object sender, EventArgs e)
+        {
+            ((MainForm)this.FindForm()).btnOpenClose_Click(sender, e);  
+        }
+
         private void radTreeView1_Selected(object sender, RadTreeViewEventArgs e)
         {
-            ((MainForm)this.Parent.Parent.Parent).showForm(((CustomNode)e.Node).Namesapace, ((CustomNode)e.Node).Url);            
+            ((MainForm)this.FindForm()).showForm(((CustomNode)e.Node).Namesapace, ((CustomNode)e.Node).Url);  
+            
         }
         private void Init()
         {
@@ -140,11 +154,22 @@ namespace Alimex.MenuForm
         {
             this.dragNode = e.Node;
         }
+
+        private void myTextBox_TextChanged(object sender, EventArgs e)
+        {
+            this.radTreeView.Filter = this.myTextBox.Text;
+        }
         protected void WireEvents()
         {
             this.radTreeView.ItemDrag += new Telerik.WinControls.UI.RadTreeView.ItemDragHandler(radTreeView_ItemDrag);
             this.radTreeView.DragEnded += new RadTreeView.DragEndedHandler(radTreeView_DragEnded);
+            this.myTextBox.TextChanged += new System.EventHandler(this.myTextBox_TextChanged);
         }
+
+        
+        
+
+       
 
     }
 }
