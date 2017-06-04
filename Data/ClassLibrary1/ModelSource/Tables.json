@@ -1,0 +1,11 @@
+﻿[
+    {
+        "Name": "Deneme",
+        "IsOriginal": "true",
+        "Fields": [
+            { "Name": "Id", "FieldType": "int", "IsIdentity": "true", "IsNullable": "true", "IsUnique": "true", "Length": "0", "Scale": "0", "IsOriginal": "true" },
+            { "Name": "Ad", "FieldType": "nvarchar", "IsIdentity": "true", "IsNullable": "true", "IsUnique": "true", "Length": "0", "Scale": "0", "IsOriginal": "true" },
+            { "Name": "Soyad", "FieldType": "nvarchar", "IsIdentity": "true", "IsNullable": "true", "IsUnique": "true", "Length": "0", "Scale": "0", "IsOriginal": "true" }
+        ]
+    }
+]

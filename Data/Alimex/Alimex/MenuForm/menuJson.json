@@ -1,0 +1,38 @@
+[
+    {
+        "Id": 1,
+        "ParentId": 0,
+        "Title": "Uygulama",
+        "Icon": null,
+        "UrlType": "Form",
+        "Namesapace": "Organization",
+        "Url": "Organization.OrganizationShemaForm"
+    },
+    {
+        "Id": 3,
+        "ParentId": 1,
+        "Title": "Ayarlar",
+        "Icon": null,
+        "UrlType": "Form",
+        "Namesapace": "Organization",
+        "Url": "Organization.OrganizationShemaForm"
+    },
+    {
+        "Id": 4,
+        "ParentId": 0,
+        "Title": "Temel",
+        "Icon": null,
+        "UrlType": "Form",
+        "Namesapace": "Organization",
+        "Url": "Organization.OrganizationShemaForm"
+    },
+    {
+        "Id": 2,
+        "ParentId": 4,
+        "Title": "Giris",
+        "Icon": null,
+        "UrlType": "Form",
+        "Namesapace": "Organization",
+        "Url": "Organization.OrganizationShemaForm"
+    }
+]

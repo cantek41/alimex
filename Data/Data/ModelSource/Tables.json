@@ -1,0 +1,239 @@
+[
+    {
+        "Name": "DenemeD",
+        "IsOriginal": true,
+        "Relations": [
+        ],
+        "Fields": [
+            {
+                "Name": "Ad",
+                "FieldType": 0,
+                "Id": 0,
+                "IsIdentity": false,
+                "IsNullable": true,
+                "IsUnique": false,
+                "Length": 0,
+                "IsOriginal": true,
+                "Scale": 0,
+                "StringBehaviour": 0,
+                "Table": null
+            },
+            {
+                "Name": "Soyad",
+                "FieldType": 0,
+                "Id": 0,
+                "IsIdentity": false,
+                "IsNullable": true,
+                "IsUnique": false,
+                "Length": 0,
+                "IsOriginal": true,
+                "Scale": 0,
+                "StringBehaviour": 0,
+                "Table": null
+            },
+            {
+                "Name": "IsDelete",
+                "FieldType": 3,
+                "Id": 0,
+                "IsIdentity": false,
+                "IsNullable": false,
+                "IsUnique": false,
+                "Length": 0,
+                "IsOriginal": true,
+                "Scale": 0,
+                "StringBehaviour": 0,
+                "Table": null
+            },
+            {
+                "Name": "candd",
+                "FieldType": 0,
+                "Id": 0,
+                "IsIdentity": false,
+                "IsNullable": true,
+                "IsUnique": false,
+                "Length": 0,
+                "IsOriginal": false,
+                "Scale": 0,
+                "StringBehaviour": 0,
+                "Table": null
+            },
+            {
+                "Name": "fdsdf",
+                "FieldType": 1,
+                "Id": 0,
+                "IsIdentity": false,
+                "IsNullable": true,
+                "IsUnique": false,
+                "Length": 0,
+                "IsOriginal": false,
+                "Scale": 0,
+                "StringBehaviour": 0,
+                "Table": null
+            },
+            {
+                "Name": "kmkkml",
+                "FieldType": 1,
+                "Id": 0,
+                "IsIdentity": false,
+                "IsNullable": true,
+                "IsUnique": false,
+                "Length": 0,
+                "IsOriginal": false,
+                "Scale": 0,
+                "StringBehaviour": 0,
+                "Table": null
+            },
+            {
+                "Name": "regert",
+                "FieldType": 1,
+                "Id": 0,
+                "IsIdentity": false,
+                "IsNullable": true,
+                "IsUnique": false,
+                "Length": 0,
+                "IsOriginal": false,
+                "Scale": 0,
+                "StringBehaviour": 0,
+                "Table": null
+            },
+            {
+                "Name": "gtdfgdf",
+                "FieldType": 3,
+                "Id": 0,
+                "IsIdentity": false,
+                "IsNullable": true,
+                "IsUnique": false,
+                "Length": 0,
+                "IsOriginal": false,
+                "Scale": 0,
+                "StringBehaviour": 0,
+                "Table": null
+            },
+            {
+                "Name": "dsfdfdf",
+                "FieldType": 1,
+                "Id": 0,
+                "IsIdentity": false,
+                "IsNullable": true,
+                "IsUnique": false,
+                "Length": 0,
+                "IsOriginal": false,
+                "Scale": 0,
+                "StringBehaviour": 0,
+                "Table": null
+            },
+            {
+                "Name": "fdfdf",
+                "FieldType": 1,
+                "Id": 0,
+                "IsIdentity": false,
+                "IsNullable": true,
+                "IsUnique": false,
+                "Length": 0,
+                "IsOriginal": false,
+                "Scale": 0,
+                "StringBehaviour": 0,
+                "Table": null
+            }
+        ]
+    },
+    {
+        "Name": "BaseData",
+        "IsOriginal": true,
+        "Relations": [
+        ],
+        "Fields": [
+            {
+                "Name": "ParentId",
+                "FieldType": 1,
+                "Id": 0,
+                "IsIdentity": false,
+                "IsNullable": true,
+                "IsUnique": false,
+                "Length": 0,
+                "IsOriginal": true,
+                "Scale": 0,
+                "StringBehaviour": 0,
+                "Table": null
+            },
+            {
+                "Name": "Value",
+                "FieldType": 0,
+                "Id": 0,
+                "IsIdentity": false,
+                "IsNullable": true,
+                "IsUnique": false,
+                "Length": 0,
+                "IsOriginal": true,
+                "Scale": 0,
+                "StringBehaviour": 0,
+                "Table": null
+            },
+            {
+                "Name": "IsDelete",
+                "FieldType": 3,
+                "Id": 0,
+                "IsIdentity": false,
+                "IsNullable": false,
+                "IsUnique": false,
+                "Length": 0,
+                "IsOriginal": true,
+                "Scale": 0,
+                "StringBehaviour": 0,
+                "Table": null
+            }
+        ]
+    },
+    {
+        "Name": "Cantek",
+        "IsOriginal": true,
+        "Relations": [
+            {
+                "ForeignKey": "FAd",
+                "RelatedTable": "DenemeD",
+                "RelationType": 0
+            }
+        ],
+        "Fields": [
+            {
+                "Name": "Ad",
+                "FieldType": 0,
+                "Id": 0,
+                "IsIdentity": false,
+                "IsNullable": true,
+                "IsUnique": false,
+                "Length": 0,
+                "IsOriginal": true,
+                "Scale": 0,
+                "StringBehaviour": 0,
+                "Table": null
+            },
+            {
+                "Name": "Soyad",
+                "FieldType": 0,
+                "Id": 0,
+                "IsIdentity": false,
+                "IsNullable": true,
+                "IsUnique": false,
+                "Length": 0,
+                "IsOriginal": true,
+                "Scale": 0,
+                "StringBehaviour": 0,
+                "Table": null
+            },
+            {
+                "Name": "IsDelete",
+                "FieldType": 3,
+                "Id": 0,
+                "IsIdentity": false,
+                "IsNullable": false,
+                "IsUnique": false,
+                "Length": 0,
+                "IsOriginal": true,
+                "Scale": 0,
+                "StringBehaviour": 0,
+                "Table": null
+            }
+        ]
+    }
+]
