@@ -222,7 +222,7 @@ namespace Organization
             };
             orgTeam.ToggleCollapseButton.ImagePrimitive.Visibility = Telerik.WinControls.ElementVisibility.Hidden;
             orgTeam.Text = orgTeam.Name;
-            orgTeam.Tag = element.Id;
+            orgTeam.Tag = element.Id.ToString();
             orgTeam.Path = parentNode == null ? orgTeam.Name : string.Format("{0}|{1}", parentNode.Path, orgTeam.Name);
             currentLayoutSettings.Roots.Add(orgTeam);
             if (parentNode != null)
@@ -301,17 +301,18 @@ namespace Organization
 
         private void button1_Click(object sender, EventArgs e)
         {
-            RoleNode addRole = new RoleNode(_userContext.Organization.ToList(), this);
-            addRole.ShowDialog();
+            addTeam_Click( sender,  e);
+            //RoleNode addRole = new RoleNode(_userContext.Organization.ToList(), this);
+            //addRole.ShowDialog();
         }
 
         public void addUnit(string name, int parentId)
         {
             _userContext.Organization.Add(new AlimexDAL.Entity.Organization() { Name = name, Parent = parentId });
             _userContext.SaveChanges();
-            OrganizationShemaForm NewForm = new OrganizationShemaForm();
-            NewForm.Show();
-            this.Dispose(false);
+            //OrganizationShemaForm NewForm = new OrganizationShemaForm();
+            //NewForm.Show();
+            //this.Dispose(false);
         }
 
         public void addMember(string UserId, int organizationId)
@@ -319,12 +320,46 @@ namespace Organization
             var userIDGuid = Guid.Parse(UserId);
             var user = _userContext.Users.Where(x => x.Id == userIDGuid).FirstOrDefault();
             user.Organizations.Add(_userContext.Organization.Where(x => x.Id == organizationId).FirstOrDefault());
-
             _userContext.SaveChanges();
-            OrganizationShemaForm NewForm = new OrganizationShemaForm();
-            NewForm.Show();
-            this.Dispose(false);
+            //OrganizationShemaForm NewForm = new OrganizationShemaForm();
+            //NewForm.Show();
+            //this.Dispose(false);
         }
+
+       public void addTeam_Click(object sender, EventArgs e)
+        {
+            var parent =this.radDiagram1.Shapes.ToList();
+            //var parentTeam = this.FindAncestor<OrgContainerShape>();
+            var newTeam = new OrgContainerShape(_userContext)
+            {
+                //Name = "New " + parentTeam.Tag.ToString() + " Team",
+                //BaseColor = parentTeam.BaseColor,
+            };
+
+            //parentTeam.ShowCollapseButton = true;
+            //newTeam.ToggleCollapseButton.ImagePrimitive.Visibility = Telerik.WinControls.ElementVisibility.Hidden;
+            //newTeam.Text = newTeam.Name;
+            //newTeam.Tag = parentTeam.Tag.ToString();
+            //newTeam.Path = string.Format("{0}|{1}", parentTeam.Path, newTeam.Name);
+            //newTeam.TeamMembers = string.Format("0 Team Members");
+            //newTeam.ShowCollapseButton = false;
+            //OrganizationShemaForm.currentLayoutSettings.Roots.Add(newTeam);
+
+            //var diagramElement = this.FindAncestor<RadDiagramElement>();
+            //diagramElement.AddShape(newTeam);
+
+            //RadDiagramConnection connection = new RadDiagramConnection();
+            //connection.ConnectionType = Telerik.Windows.Diagrams.Core.ConnectionType.Polyline;
+            //connection.Source = parentTeam;
+            //connection.Target = newTeam;
+            //connection.Route = true;
+            //diagramElement.AddConnection(connection);
+
+            //diagramElement.SetLayout(Telerik.Windows.Diagrams.Core.LayoutType.Tree, OrganizationShemaForm.currentLayoutSettings);
+
+        }
+
+
         private void button2_Click(object sender, EventArgs e)
         {
             var addRole = new AddUserDialog(_userContext.Organization.ToList(), _userContext.Users.ToList(), this);
