@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Linq.Dynamic;
 using Telerik.OpenAccess;
 
 namespace Data
@@ -52,13 +53,11 @@ namespace Data
         {
             checkParameters(tableName);
             checkParameters(id);
-
-            var Id = Guid.Parse(id);
             return _context
                 .getContext()
                 .GetAll(preperToTableName(tableName))
+                .Where(string.Format("Id.Equals(Guid(\"{0}\"))", id))                
                 .Cast<object>()
-                .Where(q => q.FieldValue<Guid>("Id") == Id)
                 .FirstOrDefault();
         }
 
@@ -117,7 +116,10 @@ namespace Data
             }
             return result;
         }
-
+        public IList<TableField> getColumns(string tblName)
+        {
+            return _tables.Where(x => x.Name == tblName).FirstOrDefault().Fields;            
+        }
         public bool UpdateDb(IList<Table> table)
         {
             _tables = table;

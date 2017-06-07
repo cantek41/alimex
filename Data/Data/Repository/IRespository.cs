@@ -72,7 +72,9 @@ namespace Data
         bool UpdateDb(IList<Table> table);
 
         IList<Table> getTables();
-            
+
+        IList<TableField> getColumns(string tblName);
+
         #endregion Public Methods
 
     }
